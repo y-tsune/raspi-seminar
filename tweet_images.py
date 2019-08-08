@@ -20,11 +20,10 @@ url_text = 'https://api.twitter.com/1.1/statuses/update.json'
 url_media = "https://upload.twitter.com/1.1/media/upload.json"
 
 while True:
-    GPIO.wait_for_edge(18, GPIO.BOTH)
     if GPIO.input(18):
         camera.start_preview()
         sleep(1)
-        camera.capture('/home/pi/toy/image.jpg')
+        camera.capture('./image.jpg')
         camera.stop_preview()
         # 画像投稿
         files = {"media" : open('image.jpg', 'rb')}

@@ -8,7 +8,6 @@ GPIO.setup(18, GPIO.IN)
 camera = PiCamera()
 
 while True:
-    GPIO.wait_for_edge(18, GPIO.BOTH)
     if GPIO.input(18):
         camera.start_preview()
         sleep(1)
